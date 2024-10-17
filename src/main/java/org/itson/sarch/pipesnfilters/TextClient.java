@@ -11,17 +11,15 @@ import java.util.Scanner;
 public class TextClient {
     public static void main(String[] args) {
         try {
-            // Conectar al servidor en localhost y puerto 1234
+            // Conectar al servidor en localhost y puerto 8080
             Socket socket = new Socket("localhost", 8080);
 
             // Enviar texto al servidor
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
+            
+            //Escribir el texto al servidor
             Scanner ky = new Scanner(System.in);
-            
-            
-            
             String textToSend = ky.nextLine();
             System.out.println("Enviando texto: " + textToSend);
             out.println(textToSend);
